@@ -28,6 +28,12 @@
 html {
   font-size: 62.5%;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* End of commone styles */
 
 /* Mouse Circle */
@@ -94,50 +100,11 @@ html {
 body {
   background: mix(#3f3251, #002025, 70%);
 }
-
 #prism-logo path {
   fill: #20293b;
   stroke: rgba(255, 255, 255, 1);
   stroke-width: 1px;
 }
-
-.loader-circle {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  margin-left: -60px;
-  margin-top: -60px;
-}
-
-.loader-line-mask {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 60px;
-  height: 120px;
-  margin-left: -60px;
-  margin-top: -60px;
-  overflow: hidden;
-  transform-origin: 60px 60px;
-  -webkit-mask-image: -webkit-linear-gradient(
-    top,
-    rgba(0, 0, 0, 1),
-    rgba(0, 0, 0, 0)
-  );
-  animation: rotate 1.2s infinite linear;
-}
-
-.loader-line-mask .loader-line {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-}
-
 #particles-background,
 #particles-foreground {
   left: -51%;
@@ -146,14 +113,12 @@ body {
   height: 202%;
   transform: scale3d(0.5, 0.5, 1);
 }
-
 #particles-background {
   background: mix(#3f3251, #002025, 70%);
   background-image: -moz-linear-gradient(45deg, #3f3251 2%, #002025 100%);
   background-image: -webkit-linear-gradient(45deg, #3f3251 2%, #002025 100%);
   background-image: linear-gradient(45deg, #3f3251 2%, #002025 100%);
 }
-
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
@@ -162,7 +127,6 @@ body {
     transform: rotate(360deg);
   }
 }
-
 @keyframes fade {
   0% {
     opacity: 1;
@@ -174,7 +138,6 @@ body {
     opacity: 1;
   }
 }
-
 body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -182,16 +145,111 @@ body {
   -webkit-user-select: none;
   overflow: hidden;
 }
-
 body .vertical-centered-box {
   position: absolute;
   width: 100%;
   height: 100%;
   text-align: center;
 }
-
 body .vertical-centered-box:after {
   content: "";
   display: inline-block;
 }
 /* END of Page BG - Interstellar */
+
+/* Section 1 */
+.section-1 {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Logo */
+.logo {
+  position: absolute;
+  top: 2rem;
+  left: 5rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: white;
+}
+/* End of Logo */
+
+/* Anim Circle */
+.circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.circle {
+  width: 22rem;
+  height: 22rem;
+  border-radius: 50%;
+  background-color: red;
+  align-self: center;
+  justify-self: center;
+  opacity: 0.5;
+}
+
+.circle-1 {
+  background: url(images/unfinishedP.jpg) center no-repeat;
+  background-size: cover;
+  background-clip: content-box;
+  border: 0.5rem dotted #76101e;
+}
+.circle-2 {
+  background: url(images/F1.jpg) center no-repeat;
+  background-size: cover;
+  background-clip: content-box;
+  border: 0.5rem dashed #133769;
+}
+.circle-3 {
+  background: url(images/guitar.jpg) center no-repeat;
+  background-size: cover;
+  background-clip: content-box;
+  border: 1rem double #c2dde4;
+}
+.circle-4 {
+  background: url(images/programmer.jpg) center no-repeat;
+  background-size: cover;
+  background-clip: content-box;
+  border: 0.7rem double #76101e;
+}
+.main-circle {
+  width: 55rem;
+  height: 55rem;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.main-circle img {
+  /* mix-blend-mode: color-dodge; */
+}
+/* End of Anim Circles */
+
+/* Featured Text */
+.featured-text {
+  font-size: 2rem;
+  color: white;
+  text-transform: uppercase;
+  width: 0;
+  word-wrap: break-word;
+  line-height: 3.5;
+  position: sticky;
+  top: 0;
+}
+.featured-text-1 {
+  margin: 0 auto 0 10rem;
+}
+.featured-text-2 {
+  margin: 0 10rem 0 auto;
+}
+/* End of Featured Text */
+
+/* End of Section 1 */
