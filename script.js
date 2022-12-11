@@ -58,23 +58,27 @@ document.body.addEventListener("mouseleave", () => {
 });
 
 // Main Button
-const mainBtn = document.querySelector(".main-btn");
-let ripple;
+const mainBtns = document.querySelectorAll(".main-btn");
 
-mainBtn.addEventListener("mouseenter", (e) => {
-  const left = e.clientX - e.target.getBoundingClientRect().left;
-  const top = e.clientY - e.target.getBoundingClientRect().top;
+mainBtns.forEach((btn) => {
+  let ripple;
 
-  ripple = document.createElement("div");
-  ripple.classList.add("ripple");
-  ripple.style.left = `${left}px`;
-  ripple.style.right = `${top}px`;
-  mainBtn.prepend(ripple);
+  btn.addEventListener("mouseenter", (e) => {
+    const left = e.clientX - e.currentTarget.getBoundingClientRect().left;
+    const top = e.clientY - e.currentTarget.getBoundingClientRect().top;
+
+    ripple = document.createElement("div");
+    ripple.classList.add("ripple");
+    ripple.style.left = `${left}px`;
+    ripple.style.right = `${top}px`;
+    btn.prepend(ripple);
+  });
+
+  btn.addEventListener("mouseleave", () => {
+    btn.removeChild(ripple);
+  });
 });
 
-mainBtn.addEventListener("mouseleave", () => {
-  mainBtn.removeChild(ripple);
-});
 // End of Main Button
 
 // About me text
