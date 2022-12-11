@@ -1,40 +1,46 @@
 // Mouse Circle
-let mouseCircle = document.querySelector(".mouse-circle");
-let mouseDot = document.querySelector(".mouse-dot");
+const mouseCircle = document.querySelector(".mouse-circle");
+const mouseDot = document.querySelector(".mouse-dot");
+
+let mouseCircleBool = true;
 
 const mouseCircleFn = (x, y) => {
-  mouseCircle.style.cssText = `top: ${y}px; left: ${x}px; opacity: 1`;
+  mouseCircleBool &&
+    (mouseCircle.style.cssText = `top: ${y}px; left: ${x}px; opacity: 1`);
+
   mouseDot.style.cssText = `top: ${y}px; left: ${x}px; opacity: 1`;
 };
-// End of mouse circle
+// End of Mouse Circle
 
-// Animated circles
+// Animated Circles
 const circles = document.querySelectorAll(".circle");
 const mainImg = document.querySelector(".main-circle img");
 
 let mX = 0;
 let mY = 0;
-const z = 20;
+const z = 100;
+
 const animateCircles = (e, x, y) => {
   if (x < mX) {
-    circles.forEach((circles) => {
-      circles.style.left = `${z}px`;
+    circles.forEach((circle) => {
+      circle.style.left = `${z}px`;
     });
     mainImg.style.left = `${z}px`;
   } else if (x > mX) {
-    circles.forEach((circles) => {
-      circles.style.left = `-${z}px`;
+    circles.forEach((circle) => {
+      circle.style.left = `-${z}px`;
     });
     mainImg.style.left = `-${z}px`;
   }
+
   if (y < mY) {
-    circles.forEach((circles) => {
-      circles.style.top = `${z}px`;
+    circles.forEach((circle) => {
+      circle.style.top = `${z}px`;
     });
     mainImg.style.top = `${z}px`;
   } else if (y > mY) {
-    circles.forEach((circles) => {
-      circles.style.top = `-${z}px`;
+    circles.forEach((circle) => {
+      circle.style.top = `-${z}px`;
     });
     mainImg.style.top = `-${z}px`;
   }
@@ -42,7 +48,7 @@ const animateCircles = (e, x, y) => {
   mX = e.clientX;
   mY = e.clientY;
 };
-// End of Anim Circles
+// End of Animated Circles
 
 document.body.addEventListener("mousemove", (e) => {
   let x = e.clientX;
@@ -50,6 +56,12 @@ document.body.addEventListener("mousemove", (e) => {
 
   mouseCircleFn(x, y);
   animateCircles(e, x, y);
+
+  const hoveredEl = document.elementFromPoint(x, y);
+
+  stickyElement(x, y, hoveredEl);
+
+  mouseCircleTransform(hoveredEl);
 });
 
 document.body.addEventListener("mouseleave", () => {
@@ -64,13 +76,14 @@ mainBtns.forEach((btn) => {
   let ripple;
 
   btn.addEventListener("mouseenter", (e) => {
-    const left = e.clientX - e.currentTarget.getBoundingClientRect().left;
-    const top = e.clientY - e.currentTarget.getBoundingClientRect().top;
+    console.log("hi");
+    const left = e.clientX - e.target.getBoundingClientRect().left;
+    const top = e.clientY - e.target.getBoundingClientRect().top;
 
     ripple = document.createElement("div");
     ripple.classList.add("ripple");
     ripple.style.left = `${left}px`;
-    ripple.style.right = `${top}px`;
+    ripple.style.top = `${top}px`;
     btn.prepend(ripple);
   });
 

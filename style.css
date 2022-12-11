@@ -27,6 +27,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 .center {
@@ -46,6 +47,8 @@ html {
   border: 0.2rem dotted #fff;
   padding: 0.1rem;
   overflow: hidden;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .main-btn-content {
@@ -131,26 +134,14 @@ html {
   opacity: 0;
   pointer-events: none;
 }
-@keyframes mouseDotAnim {
-  0% {
-    width: 0.5rem;
-    height: 0.5rem;
-  }
-  55% {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-  100% {
-    width: 0.5rem;
-    height: 0.5rem;
-  }
-}
+
 .mouse-circle {
   width: 6rem;
   height: 6rem;
   border: 0.1rem solid #b4b1b8;
   animation: mouseCircleAnimation 10s infinite linear;
 }
+
 @keyframes mouseCircleAnimation {
   0% {
     width: 6rem;
@@ -178,6 +169,22 @@ html {
   width: 0.5rem;
   height: 0.5rem;
   background-color: #c9374c;
+  animation: mouseDotAnim 10s infinite linear;
+}
+
+@keyframes mouseDotAnim {
+  0% {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+  55% {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  100% {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
 }
 /* End of mouse circle */
 
@@ -228,7 +235,6 @@ body {
   text-rendering: optimizeLegibility;
   font-family: "proxima-nova-soft", sans-serif;
   -webkit-user-select: none;
-  /* overflow: hidden; */
 }
 body .vertical-centered-box {
   position: absolute;
@@ -369,7 +375,7 @@ body .vertical-centered-box:after {
 }
 
 /* Section 2 Heading */
-.section-2-heading {
+.section-heading {
   font-size: 2rem;
   font-weight: 300;
   color: #fff;
@@ -396,7 +402,7 @@ body .vertical-centered-box:after {
   font-size: 13rem;
   font-weight: bold;
   color: #fff;
-  letter-spacing: 0.9rem;
+  letter-spacing: 0.5rem;
   text-shadow: 0 0 1rem #c2dde4;
   position: relative;
 }
@@ -435,12 +441,26 @@ body .vertical-centered-box:after {
 .section-3 {
   width: 100%;
   height: 100%;
-  padding: 20rem 0 10rem 0;
+  padding: 10rem 0;
+  margin-top: 10rem;
   position: relative;
 }
 
 /* Skills */
-.projects {
+.container-glass {
+  width: 40rem;
+  height: 55rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  margin: 5rem;
 }
+
+.projects {
+  flex: wrap;
+  padding-bottom: 15rem;
+}
+
 /* End of Skills */
 /* End of section 3 */
