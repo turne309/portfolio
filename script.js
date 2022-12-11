@@ -77,12 +77,27 @@ mainBtn.addEventListener("mouseleave", () => {
 });
 // End of Main Button
 
+// About me text
+const aboutMeText = document.querySelector(".about-me-text");
+const aboutMeTextContent =
+  "I am a designer and I like creating the most innovative and visually pleasing designs possible. I also like Purdue, guitar, and racing.";
+
+Array.from(aboutMeTextContent).forEach((char) => {
+  const span = document.createElement("span");
+  span.textContent = char;
+  aboutMeText.appendChild(span);
+
+  span.addEventListener("mouseenter", (e) => {
+    e.target.style.animation = "aboutMeTextAnim 10s infinite";
+  });
+});
+// End of About me text
 //
 //
 //
 //
 //
-//BtwpleapleaShoul
+//
 //
 //
 
