@@ -45,6 +45,7 @@ html {
   transform: translate(-50%, -50%);
   animation: mouseDotAnim 10s infinite linear;
   opacity: 0;
+  pointer-events: none;
 }
 @keyframes mouseDotAnim {
   0% {
@@ -195,6 +196,10 @@ body .vertical-centered-box:after {
   align-self: center;
   justify-self: center;
   opacity: 0.5;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: left 2s, top 2s;
 }
 
 .circle-1 {
@@ -202,24 +207,28 @@ body .vertical-centered-box:after {
   background-size: cover;
   background-clip: content-box;
   border: 0.5rem dotted #76101e;
+  margin-left: -10rem;
 }
 .circle-2 {
   background: url(images/F1.jpg) center no-repeat;
   background-size: cover;
   background-clip: content-box;
   border: 0.5rem dashed #133769;
+  margin-right: -10rem;
 }
 .circle-3 {
   background: url(images/guitar.jpg) center no-repeat;
   background-size: cover;
   background-clip: content-box;
   border: 1rem double #c2dde4;
+  margin-left: -10rem;
 }
 .circle-4 {
   background: url(images/programmer.jpg) center no-repeat;
   background-size: cover;
   background-clip: content-box;
   border: 0.7rem double #76101e;
+  margin-right: -10rem;
 }
 .main-circle {
   width: 55rem;
@@ -227,9 +236,18 @@ body .vertical-centered-box:after {
   position: absolute;
   overflow: hidden;
   border-radius: 50%;
+  transition: width 0.2s, height 0.2s;
+}
+.main-circle:hover {
+  width: 75rem;
+  height: 75rem;
 }
 .main-circle img {
   /* mix-blend-mode: color-dodge; */
+  position: relative;
+  transition: left 2s, top 2s;
+  top: 0;
+  left: 0;
 }
 /* End of Anim Circles */
 
@@ -252,4 +270,94 @@ body .vertical-centered-box:after {
 }
 /* End of Featured Text */
 
+/* Main Button */
+.main-btn {
+  position: absolute;
+  bottom: 3rem;
+  width: 13rem;
+  height: 13rem;
+  background-color: #0b1f3a;
+  border-radius: 50%;
+  border: 0.2rem dotted #fff;
+  padding: 0.1rem;
+  overflow: hidden;
+}
+
+.main-btn-content {
+  width: 100%;
+  height: 100%;
+  border: 0.2rem dotted #fff;
+  border-radius: 50%;
+  transform: rotate(40deg);
+  transition: transform 0.2s, border 0.2s;
+}
+
+.main-btn:hover .main-btn-content {
+  transform: rotate(60deg);
+  border: 0.2rem dotted #fff;
+  transition: transform 0.2s 0.5s, border 0.2s;
+}
+
+.main-btn-line {
+  position: absolute;
+  top: 4rem;
+  width: 3rem;
+  height: 0.5rem;
+  border: 0.1rem solid #fff;
+}
+
+.main-btn-line:nth-child(1) {
+  transform: rotateZ(-45deg) translateX(-0.65rem);
+  transform-origin: left center;
+  border-right: none;
+}
+
+.main-btn-line:nth-child(2) {
+  transform: rotateZ(45deg) translateX(0.65rem);
+  transform-origin: right center;
+  border-left: none;
+}
+
+.main-btn-line:nth-child(3) {
+  transform: rotateZ(90deg) translateX(0.5rem);
+  border-left: none;
+}
+
+.main-btn span {
+  position: absolute;
+  bottom: 3rem;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.ripple {
+  position: absolute;
+  width: 0;
+  height: 0;
+  background-color: #3f3251;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: rippleAnim 0.5s forwards;
+}
+
+@keyframes rippleAnim {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 230%;
+    height: 230%;
+  }
+}
+/* End of Main Button */
 /* End of Section 1 */
+
+/* Section 2 */
+.section-2 {
+  position: relative;
+  padding: 10rem 10rem 15rem 10rem;
+}
+/* End o Section 2 */
