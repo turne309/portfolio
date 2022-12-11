@@ -109,6 +109,10 @@ Array.from(aboutMeTextContent).forEach((char) => {
   });
 });
 // End of About me text
+
+// Skills
+
+// End of Skills
 //
 //
 //

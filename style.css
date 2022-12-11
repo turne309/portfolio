@@ -448,6 +448,8 @@ body .vertical-centered-box:after {
 
 /* Skills */
 .container-glass {
+  position: relative;
+  display: inline-flexbox;
   width: 40rem;
   height: 55rem;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
@@ -455,12 +457,49 @@ body .vertical-centered-box:after {
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(5px);
   margin: 5rem;
+  transition: all ease-in-out 0.3s;
+  opacity: 0.5;
+}
+.skills-heading {
+  text-decoration: underline;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 3rem;
+  line-height: 3;
+  font-size: 1.3rem;
+  text-shadow: 0 0 1rem #c2dde4;
+  position: relative;
 }
 
-.projects {
-  flex: wrap;
-  padding-bottom: 15rem;
+.skill-text {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 3;
+  font-size: 1.3rem;
+  text-shadow: 0 0 1rem #c2dde4;
+  position: relative;
 }
-
+.container-glass:hover {
+  width: 45rem;
+  height: 60rem;
+  transform: scale(0.9rem);
+  text-transform: scale(0.9rem);
+  opacity: 100%;
+}
 /* End of Skills */
 /* End of section 3 */
+
+/* Section 4 */
+.section-4 {
+  position: relative;
+  width: 100%;
+}
+
+/* Services */
+.services-wrapper {
+  width: 100%;
+  flex-direction: column;
+}
+/* End o Services */
+/* End of Section 4 */
