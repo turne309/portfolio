@@ -94,6 +94,30 @@ mainBtns.forEach((btn) => {
 
 // End of Main Button
 
+// Navigation
+const menuIcon = document.querySelector(".menu-icon");
+const navbar = document.querySelector(".navbar");
+
+const scrollFn = () => {
+  menuIcon.classList.add("show-menu-icon");
+  navbar.classList.add("hide-navbar");
+
+  if (window.scrollY === 0) {
+    menuIcon.classList.remove("show-menu-icon");
+    navbar.classList.remove("hide-navbar");
+  }
+
+  progressBarFn();
+};
+
+document.addEventListener("scroll", scrollFn);
+
+menuIcon.addEventListener("click", () => {
+  menuIcon.classList.remove("show-menu-icon");
+  navbar.classList.remove("hide-navbar");
+});
+// End of Navigation
+
 // About me text
 const aboutMeText = document.querySelector(".about-me-text");
 const aboutMeTextContent =
@@ -110,9 +134,73 @@ Array.from(aboutMeTextContent).forEach((char) => {
 });
 // End of About me text
 
-// Skills
+// section 4
+document.querySelectorAll(".service-btn").forEach((service) => {
+  service.addEventListener("click", (e) => {
+    e.preventDefault();
 
-// End of Skills
+    const serviceText = service.nextElementSibling;
+    serviceText.classList.toggle("change");
+
+    const rightPosition = serviceText.classList.contains("change")
+      ? `calc(100% - ${getComputedStyle(service.firstElementChild).width})`
+      : 0;
+
+    service.firstElementChild.style.right = rightPosition;
+  });
+});
+// End of section 4
+
+// Section 5
+// Form
+const formHeading = document.querySelector(".form-heading");
+const formInputs = document.querySelectorAll(".contact-form-input");
+
+formInputs.forEach((input) => {
+  input.addEventListener("focus", () => {
+    formHeading.style.opacity = "0";
+    setTimeout(() => {
+      formHeading.textContent = `Your ${input.placeholder}`;
+      formHeading.style.opacity = "1";
+    }, 300);
+  });
+
+  input.addEventListener("blur", () => {
+    formHeading.style.opacity = "0";
+    setTimeout(() => {
+      formHeading.textContent = "Let's Talk";
+      formHeading.style.opacity = "1";
+    }, 300);
+  });
+});
+// End of Form
+
+// Slideshow
+const slideshow = document.querySelector(".slideshow");
+
+setInterval(() => {
+  const firstIcon = slideshow.firstElementChild;
+
+  firstIcon.classList.add("faded-out");
+
+  const thirdIcon = slideshow.children[3];
+
+  thirdIcon.classList.add("light");
+
+  thirdIcon.previousElementSibling.classList.remove("light");
+
+  setTimeout(() => {
+    slideshow.removeChild(firstIcon);
+
+    slideshow.appendChild(firstIcon);
+
+    setTimeout(() => {
+      firstIcon.classList.remove("faded-out");
+    }, 500);
+  }, 500);
+}, 3000);
+// End of Slideshow
+
 //
 //
 //

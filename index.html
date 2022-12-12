@@ -32,21 +32,23 @@
       </div>
       <!-- end of page BG -->
 
+      <!-- Navigation -->
       <!-- Menu Icon -->
-        <div class="menu-icon">
+        <div class="menu-icon center">
           <div class="menu-icon-line"></div>
           <div class="menu-icon-line"></div>
         </div>
       <!-- End of Menu Icon -->
 
-
       <!-- Navbar -->
       <nav class="navbar">
-        <a href="#" class="navbar-link">Home</a>
-        <a href="#" class="navbar-link">About Me</a>
-        <a href="#" class="navbar-link">Skills</a>
-        <a href="#" class="navbar-link">Services</a>
-        <a href="#" class="navbar-link">Contact</a>
+        <a href="#section-1" class="navbar-link pointer-enter pointer-enter"
+          >Home</a
+        >
+        <a href="#section-2"class="navbar-link">About Me</a>
+        <a href="#section-3" class="navbar-link">Skills</a>
+        <a href="#section-4" class="navbar-link">Services</a>
+        <a href="#section-5" class="navbar-link">Contact</a>
       </nav>
       <!-- End of Navbar -->
 
@@ -110,15 +112,15 @@
       <!-- End of section 2 -->
 
       <!-- Section 3 -->
-      <section class="section-3" id="section-3">
+      <section class="section-3 center" id="section-3">
         <!-- Section 3 heading -->
         <h1 class="section-heading">My Skills</h1>
         <!-- End of Section 3 heading -->
 
         <!-- Skills -->
-        <div class="skills center">
-          <div class="container-glass">
-            <h1 class="skills-heading center">Front-End Skills</h1>
+        <!-- <div class="skills center"> -->
+          <div class="container-glass center">
+            <h2 class="skills-heading center">Front-End Skills</h2>
             <p class="skill-text center"><HTML>
               HTML <br>
               Python<br>
@@ -133,8 +135,8 @@
               Sass
             </p>
           </div>
-          <div class="container-glass">
-            <h1 class="skills-heading  center">Back-End Skills</h1>
+          <div class="container-glass center">
+            <h2 class="skills-heading  center">Back-End Skills</h2>
             <p class="skill-text center">
               MongoDb <br>
               MySql <br>
@@ -144,8 +146,8 @@
               Express
             </p>
           </div>
-          <div class="container-glass">
-            <h1 class="skills-heading  center">Tools</h1>
+          <div class="container-glass center">
+            <h2 class="skills-heading  center">Tools</h2>
             <p class="skill-text center">
               Vs Code <br>
               Atom <br>
@@ -157,63 +159,140 @@
               Figma
             </p>
           </div>
-        </div>
+        <!-- </div> -->
         <!-- End of Skills -->
       </section>
       <!-- End of Section 3 -->
 
       <!-- Section 4 -->
-      <section class="section-4">
+      <section class="section-4" id="section-4">
         <!-- Section Heading -->
         <div class="section-heading">What I Can</div>
         <!-- End of Section Heading -->
 
         <!-- Services -->
-        <div class="services-wrapper">
+        <div class="services-wrapper center">
           <div class="service">
-            <a href="#" class="service-btn">
-              <span>UI/UX</span>
-            </a>
-            <p class="service-text">Landing Pages, User Flow, Wireframing Prototyping, Mobile App, Design, Web App</p>
+            <a href="#" class="service-btn pointer-enter"><span>UI/UX</span></a>
+            <p class="service-text">
+              Landing Pages, User Flow, Wireframing Prototyping, Mobile App,
+              Design, Web App
+            </p>
           </div>
           <div class="service">
-            <a href="#" class="service-btn">
-              <span>Icon/Illustration</span>
-            </a>
-            <p class="service-text">Character Design, Icon Set, Illustration Guide, Illustration Set</p>
+            <a href="#" class="service-btn pointer-enter"
+              ><span>Icon/Illustration</span></a
+            >
+            <p class="service-text">
+              Character Design, Icon Set, Illustration Guide, Illustration Set
+            </p>
           </div>
           <div class="service">
-            <a href="#" class="service-btn">
-              <span>Branding</span>
-            </a>
-            <p class="service-text">Visual Identity, Stationary Kit, Marketing Materials</p>
+            <a href="#" class="service-btn pointer-enter"
+              ><span>Branding</span></a
+            >
+            <p class="service-text">
+              Visual Identity, Stationary Kit, Marketing Materials
+            </p>
           </div>
           <div class="service">
-            <a href="#" class="service-btn">
-              <span>Development</span>
-            </a>
-            <p class="service-text">HTML/CSS, JavaScript, Wordpress, Responsive Website</p>
+            <a href="#" class="service-btn pointer-enter"
+              ><span>Development</span></a
+            >
+            <p class="service-text">
+              HTML/CSS, JavaScript, Wordpress, Responsive Website
+            </p>
           </div>
           <div class="service">
-            <a href="#" class="service-btn">
-              <span>Motion</span>
-            </a>
+            <a href="#" class="service-btn pointer-enter"
+              ><span>Motion</span></a
+            >
             <p class="service-text">2D Animation, Ui Motion</p>
           </div>
           <div class="service">
-            <a href="#" class="service-btn">
-              <span>Photography</span>
-            </a>
+            <a href="#" class="service-btn pointer-enter"
+              ><span>Photography</span></a
+            >
             <p class="service-text">Travel Photography, Product Photography</p>
           </div>
         </div>
         <!-- End of Services -->
       </section>
-
       <!-- End of Section 4 -->
+
+      <!-- Section 5 -->
+      <section class="section-5 center" id="section-5">
+        <!-- Section 5 Heading -->
+        <h1 class="section-heading">Contact Me</h1>
+        <!-- End of Section 5 Heading -->
+
+        <!-- Form -->
+        <div class="form-wrapper">
+          <h2 class="form-heading">Let's Talk</h2>
+          <form class="contact-form center" action="POST" data-netlify="true">
+            <input
+              type="text"
+              class="contact-form-input pointer-enter"
+              placeholder="Name"
+              id="name"
+              autocomplete="off"
+              name="name"
+            />
+            <p class="message">Error Message</p>
+            <input
+              type="text"
+              class="contact-form-input pointer-enter"
+              placeholder="Email"
+              id="email"
+              autocomplete="off"
+              name="email"
+            />
+            <p class="message">Error Message</p>
+            <input
+              type="text"
+              class="contact-form-input pointer-enter"
+              placeholder="Subject"
+              id="subject"
+              autocomplete="off"
+              name="subject"
+            />
+            <p class="message">Error Message</p>
+            <textarea
+              class="contact-form-input contact-form-textarea pointer-enter"
+              placeholder="Message"
+              id="message"
+              autocomplete="off"
+              name="message"
+            ></textarea>
+            <p class="message">Error Message</p>
+            <button class="form-submit-btn " type="submit">send</button>
+          </form>
+        </div>
+        <!-- End of Form -->
+
+        <!-- Slideshow -->
+        <div class="slideshow">
+          <a href="#" class="slideshow-link">
+            <img src="images/social-icons/insta.png" />
+          </a>
+          <a href="#" class="slideshow-link">
+            <img src="images/social-icons/facebook.png" />
+          </a>
+          <a href="#" class="slideshow-link light">
+            <img src="images/social-icons/linkedin.png" />
+          </a>
+          <a href="#" class="slideshow-link">
+            <img src="images/social-icons/twitter.png" />
+          </a>
+          <a href="#" class="slideshow-link">
+            <img src="images/social-icons/utube.png" />
+          </a>
+        </div>
+        <!-- End of Slideshow -->
+      </section>
+      <!-- End of Section 5 -->
     </div>
     <!-- End of page container -->
-
     <script src="script.js"></script>
   </body>
 </html>

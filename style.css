@@ -249,6 +249,64 @@ body .vertical-centered-box:after {
 }
 /* END of Page BG - Interstellar */
 
+/* Navigation */
+/* Menu Icon */
+.menu-icon {
+  position: fixed;
+  top: 3.5rem;
+  right: 0;
+  width: 12rem;
+  height: 7rem;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 100;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s;
+}
+
+.menu-icon-line {
+  width: 4rem;
+  height: 0.1rem;
+  background-color: #fff;
+  margin: 0.5rem 0;
+  box-shadow: 0 0.3rem 0.5rem #000;
+}
+
+.show-menu-icon {
+  opacity: 1;
+  visibility: visible;
+}
+/* End of Menu Icon */
+
+.navbar {
+  position: fixed;
+  top: 2.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 3rem;
+  z-index: 100;
+  transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+}
+
+.navbar-link {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 2.5rem;
+  text-shadow: 0 0 1rem #c2dde4;
+}
+
+.hide-navbar {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10rem);
+}
+/* End of Navbar */
+
 /* Section 1 */
 .section-1 {
   position: relative;
@@ -399,7 +457,7 @@ body .vertical-centered-box:after {
 
 .about-me-text span {
   font-family: "Poppins", sans-serif;
-  font-size: 13rem;
+  font-size: 10rem;
   font-weight: bold;
   color: #fff;
   letter-spacing: 0.5rem;
@@ -442,14 +500,13 @@ body .vertical-centered-box:after {
   width: 100%;
   height: 100%;
   padding: 10rem 0;
-  margin-top: 10rem;
+  margin-top: 30rem;
   position: relative;
 }
 
 /* Skills */
 .container-glass {
-  position: relative;
-  display: inline-flexbox;
+  display: inline-block;
   width: 40rem;
   height: 55rem;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
@@ -492,6 +549,7 @@ body .vertical-centered-box:after {
 
 /* Section 4 */
 .section-4 {
+  top: 70rem;
   position: relative;
   width: 100%;
 }
@@ -501,5 +559,280 @@ body .vertical-centered-box:after {
   width: 100%;
   flex-direction: column;
 }
-/* End o Services */
+
+.service {
+  width: 70%;
+  margin: 2rem 0;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  margin: 5rem;
+}
+.service-btn {
+  width: 100%;
+  position: relative;
+  display: block;
+  height: 15rem;
+}
+.service-btn span {
+  font-family: "poppins", sans-serif;
+  font-size: 10rem;
+  font-style: italic;
+  font-weight: bold;
+  color: #c9374c;
+  position: absolute;
+  right: 2rem;
+  transition: right 0.5s;
+  padding: 2rem;
+}
+.service-text {
+  font-size: 5rem;
+  color: #b4b1b8;
+  letter-spacing: 0.1rem;
+  height: 0rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s;
+  padding: 2rem;
+}
+
+.change.service-text {
+  height: 15rem;
+  visibility: visible;
+  padding: 2rem;
+  opacity: 1;
+  transition: height 0.5s, opacity 0.5s 0.5s;
+}
+/* End of Services */
 /* End of Section 4 */
+
+/* Section 5 */
+.section-5 {
+  top: 70rem;
+  position: relative;
+  height: 100vh;
+  flex-direction: column;
+}
+
+/* Form */
+.form-heading {
+  font-family: "poppins", sans-serif;
+  font-size: 6rem;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.3rem;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 1rem #c2dde4;
+}
+
+.contact-form {
+  flex-direction: column;
+}
+
+.contact-form-input {
+  width: 60rem;
+  pad: 0.5rem;
+  margin: 1rem 0;
+  padding: 0.1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 0.1rem solid #6f6d72;
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 0.1rem;
+  height: 5rem;
+
+  box-shadow: 0 0 1rem #c2dde4(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+}
+
+.contact-form-textarea {
+  height: 20rem;
+  resize: none;
+}
+
+/* Submit Button */
+.form-submit-btn {
+  position: relative;
+  top: 35%;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: none;
+  outline: none;
+  -webkit-appearance: none;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-indent: 0.5rem;
+  cursor: pointer;
+  transition: color 1.5s 0.5s, border 3s 1s;
+  text-shadow: 0 0 1rem #c2dde4;
+}
+.form-submit-btn:before,
+.form-submit-btn:after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  backface-visibility: visible;
+  transform-style: preserve-3d;
+  perspective: 400px;
+  transform-origin: 50% -50%;
+  transform: rotateX(360deg) rotateY(0) translateX(-50%) translateY(0)
+    scale(0.2);
+  transition: all 0.5s;
+}
+.form-submit-btn:before {
+  top: 5px;
+  left: 50%;
+  height: 3rem;
+  background: white;
+  border-top: 2rem solid #2980b9;
+  border-right: 3rem solid transparent;
+  border-left: 3rem solid transparent;
+}
+.form-submit-btn:after {
+  top: 0;
+  left: 50%;
+  border-top: 2rem solid white;
+  border-right: 3rem solid transparent;
+  border-left: 3rem solid transparent;
+}
+.form-submit-btn:hover {
+  color: rgba(255, 255, 255, 0);
+  border: 2px solid rgba(255, 255, 255, 0);
+  transition: color 0.25s, border 0.25s;
+}
+.form-submit-btn:hover:before,
+.form-submit-btn:hover:after {
+  opacity: 1;
+  transform: rotateX(0) rotateY(-10deg) translateX(-50%) translateY(0) scale(1);
+}
+.fly {
+  color: rgba(255, 255, 255, 0);
+  border: 2px solid rgba(255, 255, 255, 0);
+  animation: sended 4s 0.8s forwards;
+}
+@keyframes sended {
+  0% {
+    height: 2rem;
+    width: 3.5rem;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 10px solid white;
+    border-left: 10px solid white;
+    opacity: 0;
+    transform: rotate(-45deg) translateX(300%) translateY(-500%);
+  }
+  5% {
+    height: 2rem;
+    width: 3.5rem;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 10px solid white;
+    border-left: 10px solid white;
+    opacity: 1;
+    transform: rotate(-45deg) translateX(0) translateY(0);
+  }
+  78% {
+    height: 2rem;
+    width: 3.5rem;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 10px solid white;
+    border-left: 10px solid white;
+    opacity: 1;
+    transform: rotate(-45deg) translateX(0) translateY(0);
+  }
+  79% {
+    height: 2rem;
+    width: 3.5rem;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 10px solid white;
+    border-left: 10px solid white;
+    opacity: 0;
+    transform: rotate(-45deg) translateX(0) translateY(0);
+  }
+  80% {
+    height: auto;
+    width: auto;
+    color: rgba(255, 255, 255, 0);
+    border: 2px solid rgba(255, 255, 255, 0);
+    opacity: 0;
+    transform: rotate(0) translateX(0) translateY(0);
+  }
+  100% {
+    height: auto;
+    width: auto;
+    color: rgba(255, 255, 255, 1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    transform: rotate(0) translateX(0) translateY(0);
+  }
+}
+.fly:before,
+.fly:after {
+  animation: flyout 0.6s forwards;
+}
+@keyframes flyout {
+  0% {
+    opacity: 1;
+    transform: rotateX(0) rotateZ(0) translateX(-50%) translateY(0) scale(1);
+  }
+  33% {
+    opacity: 0.66;
+    transform: rotateX(0) rotateZ(-5deg) translateX(-100%) translateY(0)
+      scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateX(0) rotateZ(0) translateX(1000%) translateY(0) scale(1);
+  }
+}
+/* End of Submit Button */
+
+/* End of Form */
+
+/* Slideshow */
+.slideshow {
+  display: flex;
+  width: 50rem;
+  margin-top: 10rem;
+  padding: 0 2rem;
+}
+
+.slideshow-link {
+  width: 20%;
+  filter: brightness(0.5);
+  transition: filter 1.5s;
+}
+
+.slideshow-link:nth-child(1),
+.slideshow-link:nth-child(5) {
+  transition: width 0.5s, opacity 0.5s;
+}
+
+.slideshow-link:nth-child(3) {
+  transition: filter 0.5s;
+}
+
+.slideshow-link img {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.faded-out {
+  opacity: 0;
+  width: 0;
+}
+
+.light {
+  filter: brightness(1.5);
+}
+/* End of Slideshow */
+/* End of Section 5 */
