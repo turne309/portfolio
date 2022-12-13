@@ -249,6 +249,68 @@ body .vertical-centered-box:after {
 }
 /* END of Page BG - Interstellar */
 
+/* Progress bar */
+.progress-bar {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  width: 8rem;
+  height: 8rem;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 200;
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+}
+
+.half-circle,
+.half-circle-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  transform-origin: right center;
+  pointer-events: none;
+}
+
+.half-circle:nth-child(1) {
+  background-color: #c9374c;
+}
+.half-circle:nth-child(2) {
+  background-color: #c9374c;
+}
+
+.half-circle-top {
+  background-color: #fff;
+}
+
+.progress-bar:hover .half-circle-top {
+  opacity: 0;
+  transition: opacity 0s 1s;
+}
+.progress-bar:hover .half-circle:nth-child(1) {
+  transform: rotate(180deg);
+  transition: transform 1s linear;
+}
+.progress-bar:hover .half-circle:nth-child(2) {
+  transform: rotate(360deg);
+  transition: transform 2s linear;
+}
+
+.progress-bar-circle {
+  width: 7.8rem;
+  height: 7.8rem;
+  background-color: #0b1f3a;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 4rem;
+  z-index: 200;
+  transition: transform 0.5s;
+  pointer-events: none;
+}
+/* End of Progress bar */
+
 /* Navigation */
 /* Menu Icon */
 .menu-icon {
@@ -585,6 +647,7 @@ body .vertical-centered-box:after {
   right: 2rem;
   transition: right 0.5s;
   padding: 2rem;
+  pointer-events: none;
 }
 .service-text {
   font-size: 5rem;
@@ -795,8 +858,27 @@ body .vertical-centered-box:after {
   }
 }
 /* End of Submit Button */
-
 /* End of Form */
+
+/* Form Validation */
+.message {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #c9374c;
+  text-shadow: 0 0 1rem #c9374c;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin: 0 auto 1rem 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.error.message {
+  visibility: visible;
+  opacity: 1;
+}
+/* End of Form Validation */
 
 /* Slideshow */
 .slideshow {
@@ -836,3 +918,225 @@ body .vertical-centered-box:after {
 }
 /* End of Slideshow */
 /* End of Section 5 */
+
+/* Responsive */
+@media (max-width: 1500px) {
+  .circle {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .main-circle {
+    width: 45rem;
+    height: 45rem;
+  }
+
+  .main-circle:hover {
+    width: 55rem;
+    height: 55rem;
+  }
+
+  .main-circle img {
+    width: 160%;
+    height: 160%;
+  }
+
+  .about-me-text span {
+    font-size: 7rem;
+  }
+
+  .section-4 {
+    margin-bottom: 10rem;
+  }
+
+  .service-btn span {
+    font-size: 9rem;
+  }
+
+  .service-text {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 1350px) {
+  .main-btn {
+    width: 12.5rem;
+    height: 12.5rem;
+  }
+
+  .circle {
+    display: none;
+  }
+
+  .progress-bar {
+    right: 1rem;
+    bottom: 0;
+  }
+
+  .about-me-text span {
+    font-size: 10rem;
+  }
+}
+
+@media (max-width: 1150px) {
+  html {
+    font-size: 55%;
+  }
+
+  .mouse-circle,
+  .mouse-dot {
+    display: none;
+  }
+
+  .navbar-link {
+    margin: 0 2rem;
+  }
+
+  .main-circle {
+    width: 40rem;
+    height: 40rem;
+  }
+
+  .main-circle:hover {
+    width: 45rem;
+    height: 45rem;
+  }
+
+  .about-me-text span {
+    font-size: 7.5rem;
+  }
+
+  .service-btn {
+    height: 12rem;
+  }
+
+  .service-btn span {
+    font-size: 8rem;
+  }
+
+  .service-text {
+    font-size: 3.5rem;
+  }
+
+  .slideshow {
+    margin: 5rem 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .menu-icon {
+    right: -4rem;
+  }
+
+  .navbar-link {
+    font-size: 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .featured-text-1 {
+    margin: 0 auto 0 5rem;
+  }
+
+  .featured-text-2 {
+    margin: 0 5rem 0 auto;
+  }
+
+  .section-heading {
+    left: 5rem;
+  }
+
+  .about-me-text span {
+    font-size: 5.5rem;
+    color: #ccc;
+  }
+
+  .service-btn {
+    height: 9rem;
+  }
+
+  .service-btn span {
+    font-size: 6rem;
+  }
+
+  .service-text {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  html {
+    font-size: 50%;
+  }
+
+  .contact-form-input {
+    width: 50rem;
+  }
+}
+
+@media (max-width: 550px) {
+  html {
+    font-size: 40%;
+  }
+
+  .main-circle img {
+    width: 180%;
+    height: 180%;
+  }
+
+  .service-btn span {
+    font-size: 4.5rem;
+  }
+
+  .service-text {
+    font-size: 3rem;
+    color: #bbb;
+  }
+
+  .contact-form-input {
+    width: 40rem;
+  }
+
+  .slideshow {
+    width: 45rem;
+  }
+
+  .slideshow-link img {
+    padding: 0 1.1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 35%;
+  }
+
+  .logo {
+    font-size: 1.7rem;
+    top: 13rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .main-circle {
+    width: 38rem;
+  }
+
+  .main-circle:hover {
+    width: 42rem;
+  }
+
+  .main-circle img {
+    width: 200%;
+    height: 200%;
+  }
+
+  .form-heading {
+    font-size: 5rem;
+  }
+}
+/* End of Responsive */

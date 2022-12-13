@@ -50,6 +50,65 @@ const animateCircles = (e, x, y) => {
 };
 // End of Animated Circles
 
+let hoveredElPosition = [];
+
+const stickyElement = (x, y, hoveredEl) => {
+  // Sticky Element
+  if (hoveredEl.classList.contains("sticky")) {
+    hoveredElPosition.length < 1 &&
+      (hoveredElPosition = [hoveredEl.offsetTop, hoveredEl.offsetLeft]);
+
+    hoveredEl.style.cssText = `top: ${y}px; left: ${x}px`;
+
+    if (
+      hoveredEl.offsetTop <= hoveredElPosition[0] - 100 ||
+      hoveredEl.offsetTop >= hoveredElPosition[0] + 100 ||
+      hoveredEl.offsetLeft <= hoveredElPosition[1] - 100 ||
+      hoveredEl.offsetLeft >= hoveredElPosition[1] + 100
+    ) {
+      hoveredEl.style.cssText = "";
+      hoveredElPosition = [];
+    }
+
+    hoveredEl.onmouseleave = () => {
+      hoveredEl.style.cssText = "";
+      hoveredElPosition = [];
+    };
+  }
+  // End of Sticky Element
+};
+
+// Mouse Circle Transform
+const mouseCircleTransform = (hoveredEl) => {
+  if (hoveredEl.classList.contains("pointer-enter")) {
+    hoveredEl.onmousemove = () => {
+      mouseCircleBool = false;
+      mouseCircle.style.cssText = `
+      width: ${hoveredEl.getBoundingClientRect().width}px;
+      height: ${hoveredEl.getBoundingClientRect().height}px;
+      top: ${hoveredEl.getBoundingClientRect().top}px;
+      left: ${hoveredEl.getBoundingClientRect().left}px;
+      opacity: 1;
+      transform: translate(0, 0);
+      animation: none;
+      border-radius: ${getComputedStyle(hoveredEl).borderBottomLeftRadius};
+      transition: width .5s, height .5s, top .5s, left .5s, transform .5s, border-radius .5s;
+      `;
+    };
+
+    hoveredEl.onmouseleave = () => {
+      mouseCircleBool = true;
+    };
+
+    document.onscroll = () => {
+      if (!mouseCircleBool) {
+        mouseCircle.style.top = `${hoveredEl.getBoundingClientRect().top}px`;
+      }
+    };
+  }
+};
+// End of Mouse Circle Transform
+
 document.body.addEventListener("mousemove", (e) => {
   let x = e.clientX;
   let y = e.clientY;
@@ -58,9 +117,7 @@ document.body.addEventListener("mousemove", (e) => {
   animateCircles(e, x, y);
 
   const hoveredEl = document.elementFromPoint(x, y);
-
   stickyElement(x, y, hoveredEl);
-
   mouseCircleTransform(hoveredEl);
 });
 
@@ -93,6 +150,81 @@ mainBtns.forEach((btn) => {
 });
 
 // End of Main Button
+
+// Progress Bar
+const sections = document.querySelectorAll("section");
+const progressBar = document.querySelector(".progress-bar");
+const halfCircles = document.querySelectorAll(".half-circle");
+const halfCircleTop = document.querySelector(".half-circle-top");
+const progressBarCircle = document.querySelector(".progress-bar-circle");
+
+let scrolledPortion = 0;
+let scrollBool = false;
+let imageWrapper = false;
+
+const progressBarFn = (bigImgWrapper) => {
+  imageWrapper = bigImgWrapper;
+  let pageHeight = 0;
+  const pageViewportHeight = window.innerHeight;
+
+  if (!imageWrapper) {
+    pageHeight = document.documentElement.scrollHeight;
+    scrolledPortion = window.pageYOffset;
+  } else {
+    pageHeight = imageWrapper.firstElementChild.scrollHeight;
+    scrolledPortion = imageWrapper.scrollTop;
+  }
+
+  const scrolledPortionDegree =
+    (scrolledPortion / (pageHeight - pageViewportHeight)) * 360;
+
+  halfCircles.forEach((el) => {
+    el.style.transform = `rotate(${scrolledPortionDegree}deg)`;
+
+    if (scrolledPortionDegree >= 180) {
+      halfCircles[0].style.transform = "rotate(180deg)";
+      halfCircleTop.style.opacity = "0";
+    } else {
+      halfCircleTop.style.opacity = "1";
+    }
+  });
+
+  scrollBool = scrolledPortion + pageViewportHeight === pageHeight;
+
+  // Arrow Rotation
+  if (scrollBool) {
+    progressBarCircle.style.transform = "rotate(180deg)";
+  } else {
+    progressBarCircle.style.transform = "rotate(0)";
+  }
+  // End of Arrow Rotation
+};
+
+// Progress Bar Click
+progressBar.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (!imageWrapper) {
+    const sectionPositions = Array.from(sections).map(
+      (section) => scrolledPortion + section.getBoundingClientRect().top
+    );
+
+    const position = sectionPositions.find((sectionPosition) => {
+      return sectionPosition > scrolledPortion;
+    });
+
+    scrollBool ? window.scrollTo(0, 0) : window.scrollTo(0, position);
+  } else {
+    scrollBool
+      ? imageWrapper.scrollTo(0, 0)
+      : imageWrapper.scrollTo(0, imageWrapper.scrollHeight);
+  }
+});
+// End of Progress Bar Click
+
+progressBarFn();
+
+// End of Progress Bar
 
 // Navigation
 const menuIcon = document.querySelector(".menu-icon");
@@ -201,6 +333,65 @@ setInterval(() => {
 }, 3000);
 // End of Slideshow
 
+// Form Validation
+const form = document.querySelector(".contact-form");
+const username = document.getElementById("name");
+const email = document.getElementById("email");
+const subject = document.getElementById("subject");
+const message = document.getElementById("message");
+const messages = document.querySelectorAll(".message");
+
+const error = (input, message) => {
+  input.nextElementSibling.classList.add("error");
+  input.nextElementSibling.textContent = message;
+};
+
+const success = (input) => {
+  input.nextElementSibling.classList.remove("error");
+};
+
+const checkRequiredFields = (inputArr) => {
+  inputArr.forEach((input) => {
+    if (input.value.trim() === "") {
+      error(input, `${input.id} is required`);
+    }
+  });
+};
+
+const checkLength = (input, min) => {
+  if (input.value.trim().length < min) {
+    error(input, `${input.id} must be at least ${min} characters`);
+  } else {
+    success(input);
+  }
+};
+
+const checkEmail = (input) => {
+  const regEx =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if (regEx.test(input.value.trim())) {
+    success(input);
+  } else {
+    error(input, "Email is not valid");
+  }
+};
+
+form.addEventListener("submit", (e) => {
+  checkLength(username, 2);
+  checkLength(subject, 2);
+  checkLength(message, 10);
+  checkEmail(email);
+  checkRequiredFields([username, email, subject, message]);
+
+  const notValid = Array.from(messages).find((message) => {
+    return message.classList.contains("error");
+  });
+
+  notValid && e.preventDefault();
+});
+// End of Form Validation
+// end of section 5
 //
 //
 //
