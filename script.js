@@ -253,7 +253,7 @@ menuIcon.addEventListener("click", () => {
 // About me text
 const aboutMeText = document.querySelector(".about-me-text");
 const aboutMeTextContent =
-  "I am a designer and I like creating the most innovative and visually pleasing designs possible. I also like Purdue, guitar, and racing.";
+  "Hi, my name is Jaydon Turner. I'm a full stack developer with a background in data management and customer-focused support. I am looking for an opportunity to apply creative, analytical, and communicative skills on a development team. Growing up, I would tend to spend just as much time making my projects look visually pleasing as I would spend making them functional. What does this mean for web development? I produce clean, usable, and visually pleasing deliverables. Interested in my skill? Let's talk.";
 
 Array.from(aboutMeTextContent).forEach((char) => {
   const span = document.createElement("span");
